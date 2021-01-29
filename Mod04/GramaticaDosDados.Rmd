@@ -1,0 +1,19 @@
+---
+title: "GramaticaDosGraficos"
+author: "Marcelo"
+date: "14/12/2020"
+output: html_document
+---
+
+#Gramática dos dados
+##Construidos em camadas
+*Corrdenadas
+*Temas
+*Eestatísticas - representação da análise
+*Geometrias - pontos, linhas, formas
+*Coordenadas A área na qual o gráfico é contruído
+*Facets - Visualização em porções menores
+  **Evitar com não técnicos
+*Dados - cojunto a ser analisdos
+*Estética - Escalas em mapeamentos de dados
+
