@@ -5,7 +5,9 @@ class(num)
 mode(num)
 typeof(num)
 
+#armazena como double
 is.integer(num)
+
 num_int = as.integer(num)
 
 ##char

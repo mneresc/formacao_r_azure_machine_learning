@@ -2,6 +2,7 @@
 7+7 
 7*7
 7^7
+#modulo
 17%%2
 
 #relacionais

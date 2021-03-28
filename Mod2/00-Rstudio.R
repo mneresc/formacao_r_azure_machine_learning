@@ -1,4 +1,4 @@
-setwd('/home/marcelocabral/projects/DataScience/R Azure ML/big_data_r_azure')
+setwd('~/projects/DataScience/R Azure ML/big_data_r_azure')
 getwd()
 
 # contribuidores 

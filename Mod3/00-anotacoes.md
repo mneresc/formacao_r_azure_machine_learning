@@ -2,6 +2,7 @@
 ## Qualitativa 
 * Nominais - (profissão sexo religião)
 * Ordinais - Escolaticdade - classe social  fila de banco  
+
 ## Quantitativa 
 * Discreta - Número de filhos
 * Continuas - peso, altura (pode assumir qualquer valor)

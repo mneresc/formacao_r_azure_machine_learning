@@ -12,7 +12,7 @@ con = dbConnect(MySQL(),user = 'root', password='root',dbname='titanic',host='lo
 query <- "select pclass, survived, avg(age) as media_idade FROM titanic.titanic WHERE survived = 1 GROUP BY pclass,survived"
 dados <- dbGetQuery(con, query)
 head(dados)
-
+?aes
 ggplot(dados,aes(pclass, media_idade))+ geom_bar(stat="identity")
 
 con2 = src_mysql(user = 'root', password='root',dbname='titanic',host='localhost')

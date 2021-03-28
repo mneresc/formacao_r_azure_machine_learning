@@ -3,7 +3,7 @@ texto2 <- "Todos somos prisioneiros de nossas escolhas"
 class(texto)
 mode(texto)
 
-sprintf('%s .%s',texto, texto2)
+sprintf('%s. %s',texto, texto2)
 cat(texto,texto2)
 
 nchar(texto)

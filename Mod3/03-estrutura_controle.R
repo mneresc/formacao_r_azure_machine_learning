@@ -23,7 +23,7 @@ valor_a = 0
 valor_b = 0
 sapply(lista, sum)
 
-
+?gl
 tabela_basquete <-
   data.frame(equipe = gl(5, 5, labels = paste("Equipe", LETTERS[1:5])),
              jogador = sample(letters, 25),
@@ -39,4 +39,4 @@ sqldf('SELECT equipe, sum(num_cestas) FROM tabela_basquete group by equipe')
 #t apply soma, agrupado funcao
 tapply(tabela_basquete$num_cestas, tabela_basquete$equipe, mean)
 tapply(tabela_basquete$num_cestas, tabela_basquete$equipe, sum)
-
+?tapply
