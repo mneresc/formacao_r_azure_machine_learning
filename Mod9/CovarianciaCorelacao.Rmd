@@ -1,0 +1,45 @@
+---
+title: "Covariância e coeficiente de correlação"
+author: "Marcelo"
+date: "03/04/2021"
+output: html_document
+---
+
+# Covariância
+
+* Medida de varivabilidade entre duas variáveis
+* Quando a covariâncias entre essas variáveis é positiva os dados apresentam tendência positiva na dispersão. 
+* Quando o valor da covariância é negativo, o comportamento é análogo, no entanto, os dados apresentam tendências negativas.
+* Mede o quanto a variação e uma variável afeta a outra
+* medida de escala de covariância que fica entre -1 e 1
+
+# Correlação
+
+* Para p = 1, tem-se uma correlação perfeita entre as duas variáveis. 
+* Se p = - 1, há uma correlação perfeita entre as variáveis, no entanto, essa correlação é negativa. 
+* Caso p = 0, as duas variáveis não dependem linearmente uma da outra.
+
+* Para p = -1 indica uma forte correlação negativa: isso significa que toda vez que x aumenta, y diminui 
+* Para p = 0 significa que não há associação entre as duas variáveis (x e y) 
+* Para p = 1 indica uma forte correlação positiva: isso significa que y aumenta com x 
+
+* *Uma alta correlação não implica em causalidade*
+  
+
+```{r mtcars}
+my_data <- mtcars
+head(my_data)
+```
+
+```{r}
+library("ggpubr")
+
+ggscatter(my_data, x = "mpg", y = "wt", 
+          add = "reg.line", conf.int = TRUE, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Autonomia", ylab = "Peso do Veículo")
+```
+
+```{r}
+
+```

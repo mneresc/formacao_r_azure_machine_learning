@@ -1,0 +1,24 @@
+---
+title: "00-Estatística Inferencial"
+author: "Marcelo"
+date: "24/04/2021"
+output: html_document
+---
+# Amostragem
+* Analisando amostra podemos inferir o que acontece como a população
+* Censo seleciona e avalia todos os elementos da população
+* Pode ter erros mas quantificar o erro 
+
+## Tipos de amostragem
+* Amostragem não probabilística - Subjetiva
+* Amostragem probabilística - Objetiva, não é influenciada
+  * Elementos selecionados por sorteio
+  * Aleatória simples
+  * Aleatória sistemática
+  * Estratisficada
+    * Separada em grupos e de cada grupo é retirado um percentual da amostra 
+  * Conglomerados - grupos
+  * Bootstrap - Reamostragem
+    * Várias amostras retiradas repetidamente de uma população 
+    * Amosta com reposição
+* Erros na amostragem - 

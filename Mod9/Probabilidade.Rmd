@@ -1,0 +1,155 @@
+---
+title: "Probabilidade"
+author: "Marcelo"
+date: "06/04/2021"
+output: html_document
+---
+
+# Probabilidade
+* Medir a incerteza
+* Valor numérico entre 0 e 1
+* *Probabilidade* a medida da *possibilidade* de um evento ocorrer
+  * Há 60% de *probabilidade* de chuva amanhã
+  * Há mais *possibilidade* de que chove do que não chova
+
+## Experimento
+* Medir ou observar uma atividade com o objetivo de coletar dados
+
+## Espaço amostral
+* Todos os resultados possíveis
+
+## Evento
+* Um ou mais resultados de um experimento
+
+## Probabilidade clássica
+* Usada quando sabemos o número de possíveis resultados
+  * *P(A) = S/N*
+
+## Probabilidade empírica
+* Quando não sabemos os possíveis resultados
+  * *P(A) = Frequencia do evento A / Número de observações*
+  
+* Supondo que 100 pessoas entraram na loja e 15 compraram 
+  * *P(A) = 15/100*
+
+## Probabilidade empírica
+  * Quando não da para usar probabilidade clássica e empírica
+  * Usamos o julgamento
+
+## Múltiplos eventos
+  * Intersecção de evento - A E B ao mesmo tempo
+  * União - OU
+  * Adição de eventos
+    * Eventos mutuamente exclusivos - Não pode ocorer ao mesmo tempo
+      * *P = P(a) + P(b)*
+    * Eventos não exclusivos - Não pode ocorer ao mesmo tempo
+      * *P = P(a) + P(b) - P(a e b)*
+## Variaveís aleatórias
+  * Discretas
+    * Números inteiros baseados em resultados do experimentos
+  * Contínuas
+    * Números que podem assumir qualquer número em um intervalo
+      * Tempo de duração de voo
+      * Tempo gasto por um cliente em um telefone
+      * Reais, que podem ser medidos e não contados
+
+## Tipo de distribuição
+  * Objetivo - associar uma probabilidade a cada resultado numérico
+  * Pode ser discreta ou continua
+
+## Distribuição binominal
+* *Para variáveis discretas*
+* Quando o experimento apresenta sucesso ou fracasso
+* O cliente que entrou na loja que adquiriu um plano ?
+  * Resposta sim ou não
+  * Probabilidade de sucesso - p = 1 - q
+  * observações são indepententes
+  * A Média de uma Distribuição Binomial, representa a média de longo prazo de sucessos esperados, baseado no número de observações.
+* A Variância de uma Distribuição Binomial, representa a variação que existe no número de sucessos (p) sobre um número (n) de observações.
+
+```{r}
+# Para este exemplo, vamos chamar um sucesso um ataque fatal (p = 0.04). 
+# Temos n = 5 pacientes e queremos saber a probabilidade de que todos sobrevivam ou, em outras palavras, 
+# que nenhum seja fatal (0 sucessos).
+
+# X = Número de sobreviventes ao ataque
+# p = 0.04
+# n = 5
+# dbinom(X, n, p)
+?dbinom
+a <- dbinom(0, 5, 0.04)
+print(a)
+
+# Desenhando a distribuição de probabilidades
+graph <- function(n,p){
+  x <- dbinom(0:n, size = n, prob = p)
+  barplot(x,ylim=c(0,1),names.arg=0:n,
+          main=sprintf(paste('Distribuição Binomial (n,p) ',n,p,sep=',')))
+}
+graph(5,0.04)
+```
+
+## Distribuição Poison
+* *Para variáveis discretas*
+* Calcular certo númeto de eventos em um intervalo de tempo e espaço
+* Quantidade de clientes que entrará na próxima hora
+* Dado que a taxa de eventos por unidade é constante e os eventos ocorrem de modo independente.
+
+```{r}
+
+# Exemplo: Considere um processo que têm uma taxa de 0,5 defeitos por unidade. 
+# Qual a probabilidade de uma unidade apresentar dois defeitos? E nenhum defeito?
+?dpois
+dpois(2, 0.5)
+dpois(0, 0.5)
+```
+## Distribuição Contínuas
+* Distribuição *normal*
+  * Quando os dados tendem a estar próximas do centro
+* Distribuição *exponencial*
+  * Quando temos desprooporção entre os dados
+* Distribuição *uniforme*
+  * Descreve dados com as mesmas chances de ocorrer
+  
+## Distribuição normal
+* A Distribuição Normal, ou Gaussiana, é a mais importante distribuição contínua. 
+* Isso por conta de vários fatores, entre eles, o teorema central do limite, o qual é um resultado essencial 
+* em aplicações práticas e teóricas, pois garante que, mesmo que os dados não sejam distribuídos segundo uma normal 
+* A média dos dados converge para uma distribuição normal conforme o número de dados aumenta.
+
+* O R inclui funcionalidades para operações com distribuições de probabilidades. 
+* Para cada distribuição há 4 operações básicas indicadas pelas letras:
+
+* d: calcula a densidade de probabilidade f(x) no ponto
+* p: calcula a função de probabilidade acumulada F(x) no ponto
+* q: calcula o quantil correspondente a uma dada probabilidade
+* r: retira uma amostra da distribuição
+
+* Para utlizar as funções combina-se uma das letras acima com uma abreviatura do nome da distribuição. 
+* Por exemplo, para calcular probabilidades usamos: pnorm para normal, pexp para exponencial, 
+* pbinom para binomial, ppois para Poisson e assim por diante.
+
+* x <- rnorm(n, mean, sd)
+* Onde n é o tamanho da amostra e mean e sd são parâmetros opcionais relacionados à média e desvio padrão, 
+* respectivamente.
+
+```{r}
+x <- rnorm(100)
+hist(x)
+```
+
+* Densidade
+  * Observe que o gráfico gerado assemelha-se a uma Gaussiana e não apresenta assimentria. 
+  * Quando o gráfico da distribuição possui tal forma, há grandes chances de se tratar de uma distribuição normal.
+
+```{r}
+x <- seq(-6, 6, by=0.01)
+y <- dnorm(x)
+plot(x, y, type="l")
+```
+
+
+
+
+
+

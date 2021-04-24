@@ -1,0 +1,115 @@
+---
+title: "Representaçãp Gráfica"
+author: "Marcelo"
+date: "03/04/2021"
+output: html_document
+---
+
+# Representação gráfica dos dados 
+*Não precisa ser elegante ana análise somente tem que ser útil
+
+## Histograma
+* Representa distribuição de frequência em várias classes
+* Soma da área deve ser igual a 1
+* Manualmente se faz necessário 
+  * Ordenar
+  * Encontrar a amplitude toral 
+  * Estimar número de classes 
+  * Contar observações
+  * Determinar frequência relativa do intervalo
+  * Construir o gŕafico
+* Simulando acidentes diários no gráfico abaixo
+
+
+```{r}
+dados = c(18, 20, 20, 21, 22, 24, 25, 25, 26, 27, 29, 29, 
+          30, 30, 31, 31, 32, 33, 34, 35, 36, 36, 37, 37, 
+          37, 37, 38, 38, 38, 40, 41, 43, 44, 44, 45, 45, 
+          45, 46, 47, 48, 49, 50, 51, 53, 54, 54, 56, 58, 62, 65)
+hist(dados, main = "Número de acidentes diários", xlab = 'Acidentes', ylab = 'Frequência', breaks = 5)
+
+```
+
+## Coeficiente de simetria
+* Histogramas podem ser simétricos ou assimétricos
+* Se estiver assimétrico deve ser tratado antes de passar para o modelo de dados 
+* É o que permite dizer se uma distribuição é assimétrica ou não
+
+
+```{r}
+#Histograma mostra o que parece ser uma assimetria
+dados_assimetria = c(18, 20, 20, 21, 22, 24, 25, 25, 26, 27, 29, 29, 
+          30, 30, 31, 31, 32, 33, 34, 35, 36, 36, 37, 37, 
+          37, 37, 38, 38, 38, 40, 41, 43, 44, 44, 45, 45, 
+          45, 46, 47, 48, 49, 50, 51, 53, 54, 54, 56, 58, 62, 65)
+
+hist(dados_assimetria, main = "Número de Acidentes Diários", xlab = "Acidentes", ylab = "Frequência")
+```
+
+* A análise abaixo não mostra muito bem a assimetria
+
+```{r}
+mean(dados_assimetria)
+sd(dados_assimetria)
+median(dados_assimetria)
+```
+
+* Utilizo a função skewness do pacote moment para validar o desvio
+* Quanto mais próximo de zero mais simétrico 
+* '< 0' - Cauda esqueda é maior que o direito
+* '> 0' - Cauda do lado direito maior que do esquedo
+* O índice abaixo mostra uma assimetria
+
+```{r}
+library(moments)
+dados_coeficiente = rnorm(1000)
+SK = skewness(dados_coeficiente)
+hist(dados_coeficiente)
+print(SK)
+```
+* Coeficiente de kurtose
+  * Mostrar curva se está achatado ou correto 
+  * Para cima ou para baixo
+  * CK = 0 - Distribuição normal
+  * Ck < 0 - Cauda mais leve que o normal
+  * CK > 0 - Cauda mais pesada que o normal
+  * O coeficiente é igual a 2.37652 a diferenca disso que deve ser consideradada
+  
+```{r}
+library(moments)
+dados_coeficiente_kurtose = rnorm(1000)
+CK = kurtosis(dados_coeficiente_kurtose)
+print(CK - 2.37652)
+```
+
+
+```{r}
+library(ggplot2)
+datasim <- data.frame(dados_coeficiente_kurtose)
+ggplot(datasim, aes(x = dados_coeficiente_kurtose), binwidth = 2) + 
+  geom_histogram(aes(y = ..density..), fill = 'red', alpha = 0.5) + 
+  geom_density(colour = 'blue') + xlab(expression(bold('Dados'))) + 
+  ylab(expression(bold('Densidade')))
+
+```
+
+## Boxplot
+* Ajuda a verificar informações de diversos aspectos ao mesmo tempo
+  * Outliers, dispersão, tendencias centrais, erros de padráo e simetria
+* Formado pelo primeiro e terceiro quartis e a mediada
+
+
+```{r}
+dados = c(18, 20, 20, 21, 22, 24, 25, 25, 26, 27, 29, 29, 
+          30, 30, 31, 31, 32, 33, 34, 35, 36, 36, 37, 37, 
+          37, 37, 38, 38, 38, 40, 41, 43, 44, 44, 45, 45, 
+          45, 46, 47, 48, 49, 50, 51, 53, 54, 54, 56, 58, 62, 65)
+
+mean(dados)
+sd(dados)
+median(dados)
+range(dados)
+quantile(dados)
+
+boxplot(dados, main = "Número de Acidentes Diários")
+```

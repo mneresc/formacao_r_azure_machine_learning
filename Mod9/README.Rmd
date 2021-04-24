@@ -1,0 +1,119 @@
+---
+title: "Estatistica Descritiva"
+author: "Marcelo"
+date: "02/04/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Estatística descritiva
+* Compreender os dados 
+* Etapa inicial de análise de para descrever e resumir os dados
+* Podemos usar 2 tipos de medida
+  * Média/mediana/moda
+  * Valor máximo e mínimo
+  * Amplitude
+
+
+## Medidas de tendência central
+
+### Média aritimérica
+
+```{r}
+media = c(10,20,30,40,50)
+print(mean(media))
+```
+
+### Mediana
+
+```{r}
+mediana = c(10,20,30,40,50)
+print(median(mediana))
+```
+### Moda
+  * Não afetada por valores extremos
+  * A medida pode ser multi ou bimodal - sendo assim pode representar um erro onde duas populações foram misturadas
+  
+```{r}
+moda = function(dados){
+  vector = table(as.vector(dados))
+  names(vector)[vector == max(vector)]
+}
+moda(c(10,10,20,20,20,20,30,40))
+```
+### Amplitudade
+*Valores máximos e mínimos
+
+```{r}
+list_amplitude = c(10,10,20,20,20,20,30,40)
+print(diff(range(list_amplitude)))
+```
+## Medidas de posição
+* Quando o número de obseevações é muito grande
+* Quartil - Divide a distribuição em quartro partes
+  * Primeiro quartil - todos os valores abaixo de 25%
+  * Segundo quartil  - todos os valores que tem 50% dos dados antes dele - corresponde a mediana
+  * Terceito quartil - 75%
+  * Quarto quartil   - 100%
+  
+```{r}
+list_quartil = c(54, 55, 56, 57, 58, 59, 60, 61, 62, 63,64)
+quantile(list_quartil)
+```
+* Percentis - quando quer agrupar em partes absolutas - divide em 100 partes iguais
+  * calcular o número cujo valor correponde a 10% da fila
+  
+```{r}
+list_quartil = c(54, 55, 56, 57, 58, 59, 60, 61, 62, 63,64)
+quantile(list_quartil,c(.10))
+```
+## Medidas de dispersão 
+
+### Desvio padrão 
+* Ajudar a calcular valores que saem muito da media dos valores
+* Calculando a variabilidade para validar a remoção de valores extremos
+* Validando maior variabilidade
+
+```{r}
+Maq1 = c(181.9, 180.8, 181.9, 180.2, 181.4)
+Maq2 = c(180.1, 181.8, 181.5, 181.2, 182.4)
+Maq3 = c(182.1, 183.7, 182.1, 180.2, 181.9)
+
+sd(Maq1)
+sd(Maq2)
+sd(Maq3)
+
+```
+
+### Variância
+* Variância ajudar na consideração de valores negativos
+* Ajuda com que a descrepância dos dados fique mais perceptível
+
+
+```{r}
+Maq1 = c(181.9, 180.8, 181.9, 180.2, 181.4)
+Maq2 = c(180.1, 181.8, 181.5, 181.2, 182.4)
+Maq3 = c(182.1, 183.7, 182.1, 180.2, 181.9)
+
+
+var(Maq1) 
+var(Maq2)
+var(Maq3)
+```
+
+## Coeficiente de variação
+* Indica o desvio padrão em termos de percentual com relação a sua saída da média
+* CV alto - alta variabilidade - pode indicar menor consistência dos dados 
+* CV baixo - baixa variabilidade
+* Podems comparar entre 2 conjuntos de dados
+* (desvio_padrao/media)*100
+
+
+
+
+
+
+
+
+
