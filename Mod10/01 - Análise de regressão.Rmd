@@ -1,0 +1,32 @@
+---
+title: "Análise de Regressão"
+author: "Marcelo"
+date: "27/04/2021"
+output: html_document
+---
+
+# Análise de regressão
+  * Imobiliária que ver relação em tamanho e preço, por exemplo
+  * Variável indepente faz variar a variável dependente em uma única direção
+    * Aumentar o preçõ não aumenta a casa
+  * Regração usada para investigar relação entre variáveis
+  * Linear quando a relação gera uma reta
+
+## Coeficiente de corelação
+  * Indica a corelação entre variáveis variando de 1 a -1
+  * Vai de forte correlação positiva a forte correlação negativa
+  * Não implica causalidade 
+
+## Correlação vs Regressão
+  * Usamos correlação para medir a relação entre variáveis 
+  * Usamos regressão para estudar o relacionamento que existe entre elas
+  
+## Regressão simples
+  * Relacionamento entre duas variáveis 
+  * Relacionamento entre
+  * y = a+bx
+
+## Premissas de análise de regressão
+  * O relacionamento entre as variáveis deve ser linear
+  * Não faça suposições baseadas no valor
+  

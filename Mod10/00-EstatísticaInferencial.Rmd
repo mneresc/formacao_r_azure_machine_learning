@@ -21,4 +21,29 @@ output: html_document
   * Bootstrap - Reamostragem
     * Várias amostras retiradas repetidamente de uma população 
     * Amosta com reposição
-* Erros na amostragem - 
+* Erros na amostragem - Valor divergente entre amostra e população
+  * Quanto menor a amostra maior o erro
+
+## Teorema do limite central
+
+* Quando o tamanho da amostra aumenta ela fica mais próximo de uma distribuição normal 
+* A média das médias amostras será a média da população
+* Se o valor de x for uma distribuição normal a amostra também terão distribuição independente da amostra
+
+## Escore Z
+* Explica o número de desvios padrão de um determinado valor em relação a média
+* Identifica os outliers - valores acima de +-3 são outliers
+
+## Intervalo de confiança
+* Limite inferior e superior para buscar amostra da população
+
+## Teste de hipótese
+* Suposição sobre parâmetro específico
+* H0 - o que já existe
+  * Nunca se pode afirmar que a hipótese é nula podemos aceitar que não temos dados suficiente
+* Ha - o que estamos tentando provar (Hipótese alternativa)
+  * O que se deseja testar
+  * Hipótese nula poremos rejeitar e não rejeitar
+*
+
+
