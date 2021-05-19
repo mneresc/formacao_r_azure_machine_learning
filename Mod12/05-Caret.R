@@ -7,12 +7,12 @@
 # Configurando o diretório de trabalho
 # Coloque entre aspas o diretório de trabalho que você está usando no seu computador
 # Não use diretórios com espaço no nome
-setwd("C:/FCD/BigDataRAzure/Cap12")
+setwd("~/projects/DataScience/FCD/RAzureML/big_data_r_azure/Mod12")
 getwd()
 
 # Instalando os pacotes
-install.packages("caret")
-install.packages("randomForest")
+#install.packages("caret")
+#install.packages("randomForest")
 
 # Carregando os pacotes
 library(caret)

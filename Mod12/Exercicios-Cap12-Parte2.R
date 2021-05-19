@@ -6,7 +6,7 @@
 # Configurando o diretório de trabalho
 # Coloque entre aspas o diretório de trabalho que você está usando no seu computador
 # Não use diretórios com espaço no nome
-setwd("C:/FCD/BigDataRAzure/Cap12")
+setwd("~/projects/DataScience/FCD/RAzureML/big_data_r_azure/Mod12")
 getwd()
 
 # Usaremos o dataset iris neste exemplo
@@ -15,6 +15,7 @@ getwd()
 # comprimento (length) e largura (width) do caule (sepal) e comprimento e largura da petala (petal)
 library(datasets)
 head(iris)
+?iris
 
 # Análise exploratoria de dados com ggplot2
 library(ggplot2)
@@ -29,7 +30,7 @@ help(kmeans)
 # Exercício 1 - Usando a função kmeans(), crie um modelo de clustering (aprendizagem não supervisionada). Use a documentação, para fazer sua pesquisa.
 # Neste caso, ja sabemos quantos grupos (clusters) existem em nossos dados (3)
 # Perceba que o dataset iris possui 5 colunas, mas estamos usando as 4 primeiras
-
+irisCluster<- kmeans(iris[,1:4],3,nstart = 20)
 
 # Obtendo informação sobre os clusters
 # Foram criados 3 clusters: cluster 1, 2 e 3
@@ -43,7 +44,7 @@ library(cluster)
 help(clusplot)
 
 # Plot
-clusplot(iris, irisCluster$cluster, color = TRUE, shade = TRUE, labels = 0, lines = 0, )
+clusplot(iris, irisCluster$cluster, color = TRUE, shade = TRUE, labels = 0, lines = 0)
 
 
 
